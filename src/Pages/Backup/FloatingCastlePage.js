@@ -1,28 +1,31 @@
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense, useState } from "react";
 import Loader from "../Components/Loader";
+import CastleInTheSky from "../models/CastleInTheSky";
+import SkyModel1 from "../models/SkyModel1";
 import SkyModel2 from "../models/SkyModel2";
 import Bird from "../models/Bird";
+import Plane from "../models/Plane";
+import Helicopter from "../models/Helicopter";
 import Car from "../models/Car";
-import HomeInfo from "../Components/HomeInfo";
-import CastleInTheSkyV3 from "../models/CastleInTheSkyV3";
+import FloatingCastle from "../models/FloatingCastle";
 
-const CastleInTheSkyPageV3 = () => {
-  const [isRotating, setIsRotating] = useState(true);
+const FloatingCastlePage = () => {
+  const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
-  // console.log({ currentStage });
+  console.log({ currentStage });
   const adjustIslandForScreenSize = () => {
     let screenScale = null;
     let screenPosition = null;
-    let rotation = [0.1, 8, 0.0];
+    let rotation = [0.1, 4.7, 0.0];
 
     if (window.innerWidth < 768) {
-      screenScale = [0.03, 0.03, 0.03];
-      screenPosition = [0, -0.7, 0]; //x y z
+      screenScale = [3.7, 3.7, 3.7];
+      screenPosition = [0, -0.5, 0]; //x y z
     } else {
-      screenScale = [0.05, 0.05, 0.05];
-      screenPosition = [0, -0.7, 0]; //x y z
+      screenScale = [7, 7, 7];
+      screenPosition = [0, -0.5, 0]; //x y z
     }
 
     return [screenScale, screenPosition, rotation];
@@ -38,7 +41,7 @@ const CastleInTheSkyPageV3 = () => {
       screenPosition = [0, -0.3, 2.5]; //x y z axis
     } else {
       screenScale = [0.001, 0.001, 0.001];
-      screenPosition = [0, -0.3, 3.5]; //x y z axis
+      screenPosition = [0, -0.3, 3.0]; //x y z axis
     }
 
     return [screenScale, screenPosition];
@@ -50,28 +53,21 @@ const CastleInTheSkyPageV3 = () => {
         isRotating ? "cursor-grabbing" : "cursor-grab"
       }`}
     >
-      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
-        {currentStage && <HomeInfo currentStage={currentStage} />}
+      <div className="text-[#70d8bd] absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+       
       </div>
       <Canvas
         className="w-full h-screen bg-transparent"
         camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
-          <directionalLight position={[0.01, 0, 0]} intensity={0.1} />
+          <directionalLight />
           <ambientLight />
-          <pointLight position={[1,1,1]} intensity={3} />
-
-          <spotLight
-              position={[10, 10, 10]}
-              angle={0.15}
-              penumbra={1}
-              intensity={2}
-            />
+          <pointLight />
+          <spotLight />
           <hemisphereLight />
           <Bird />
-          <SkyModel2 isRotating={isRotating} />
-          <CastleInTheSkyV3
+          <FloatingCastle
             position={islandPosition}
             scale={islandScale}
             rotation={islandRotation}
@@ -91,4 +87,4 @@ const CastleInTheSkyPageV3 = () => {
   );
 };
 
-export default CastleInTheSkyPageV3;
+export default FloatingCastlePage;

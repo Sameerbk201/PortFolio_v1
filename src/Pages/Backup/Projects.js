@@ -1,7 +1,7 @@
 import React from "react";
 import { projects } from "../constants";
 import { Link } from "react-router-dom";
-import { arrow, demoIcon, demoIcon1, github } from "../assets/icons";
+import { arrow } from "../assets/icons";
 import CTA from "../Components/CTA";
 
 const Projects = () => {
@@ -14,7 +14,9 @@ const Projects = () => {
         </h1>
         <div className="mt-5 flex flex-col gap-3 text-slate-500">
           <p className="text-sm">
-            Join me in my journey of sharing: Explore my collection of free projects from my college and work experiences. Your help isn't just wanted, it's appreciated and cheered for!
+            Embrace the power of open collaboration: Dive into my rich tapestry
+            of open-source projects spanning my undergraduate journey and
+            internships. Your contributions are not only valued but celebrated
           </p>
         </div>
         <div className="flex flex-wrap my-20 gap-16">
@@ -37,40 +39,26 @@ const Projects = () => {
                 </h4>
                 <p className="mt-2 text-slate-500">{project.description}</p>
                 <div className="mt-5 flex items-center gap-2 font-poppins">
-                  {project.git.status && <Link
-                    to={project.git.gitlink}
+                  <Link
+                    to={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-semibold text-blue-600"
                   >
-                    Git Hub
-                  </Link>}
-                  {project.git.status && <img
-                    src={github}
+                    Live Link
+                  </Link>
+                  <img
+                    src={arrow}
                     alt="arrow"
-                    className="w-4 h-4 object-contain bg-white rounded-lg"
-                  />}
-
-                  {project.demo.status && <Link
-                    to={project.demo.demolink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-blue-600"
-                  >
-                    Demo
-                  </Link>}
-                  {project.demo.status && <img
-                    src={demoIcon1}
-                    alt="arrow"
-                    className="w-4 h-4 object-contain bg-white rounded-lg"
-                  />}
+                    className="w-4 h-4 object-contain"
+                  />
                 </div>
               </div>
             </div>
           ))}
         </div>
         <hr className="border-slate-200" />
-        <CTA />
+        <CTA/>
       </section>
     </section>
   );

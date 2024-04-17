@@ -55,7 +55,23 @@ import weather from "./weather1.png";
 import pytube from "./pytube.png";
 import homeautomation from './homeautomationiot.png'
 import flask from './flask.png'
+import resumeIcon from './cv.png'
+import cvIcon from './cvicon.png'
+import whatsappicon from './whatsapp.png'
+import hospitalicon from './hospital.png'
+import demoIcon from './demo.png'
+import demoIcon1 from './demo1.png'
+import nginxIcon from './nginx.png'
+import apacheIcon from './apache.png'
 export {
+  apacheIcon,
+  nginxIcon,
+  demoIcon1,
+  demoIcon,
+  hospitalicon,
+  whatsappicon,
+  cvIcon,
+  resumeIcon,
   flask,
   homeautomation,
   chatapp,

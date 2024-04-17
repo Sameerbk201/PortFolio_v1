@@ -1,6 +1,7 @@
 import { meta, shopify, starbucks, tesla } from "../assets/images";
 import {
   ansible,
+  apacheIcon,
   arduino,
   azure,
   bash,
@@ -19,6 +20,7 @@ import {
   github,
   GUI,
   homeautomation,
+  hospitalicon,
   html,
   IOT,
   java,
@@ -31,6 +33,7 @@ import {
   motion,
   mui,
   nextjs,
+  nginxIcon,
   nodejs,
   paramount,
   pizzaapp,
@@ -52,6 +55,7 @@ import {
   waterlab,
   waterlaba,
   weather,
+  whatsappicon,
 } from "../assets/icons";
 
 export const skills = [
@@ -209,6 +213,16 @@ export const skills = [
     name: "Flask",
     type: "Backend",
   },
+  {
+    imageUrl: nginxIcon,
+    name: "Nginx",
+    type: "Web-Server",
+  },
+  {
+    imageUrl: apacheIcon,
+    name: "Apache",
+    type: "Web-Server",
+  },
 ];
 
 export const experiences = [
@@ -266,6 +280,11 @@ export const experiences = [
 export const socialLinks = [
 
   {
+    name: "WhatsApp",
+    iconUrl: whatsappicon,
+    link: `https://wa.me/${process.env.REACT_APP_PHONE_NUMBER}`,
+  },
+  {
     name: "LinkedIn",
     iconUrl: linkedin,
     link: "https://linkedin.com/in/sameer-karn-589544230",
@@ -279,12 +298,68 @@ export const socialLinks = [
 
 export const projects = [
   {
+    iconUrl: hospitalicon,
+    theme: "btn-back-red",
+    name: "Clinic Management",
+    description:
+      "Created a robust system for managing clinics. It helps book appointments easily by using real-time doctor schedules. Also, it makes it simple to see patient history and track appointments for accurate diagnoses. Try it out use email:admin@gmail.com, pass:admin",
+    link: "https://github.com/bk201grsameer/Chat_Project_MERN",
+    git: {
+      status: false,
+      gitlink: ''
+    },
+    demo: {
+      status: true,
+      demolink: 'https://www.skclinic.online/'
+    }
+  },
+  {
     iconUrl: chatapp,
     theme: "btn-back-red",
     name: "Chat App Clone",
     description:
       "Developed a real-time chat application built using the MERN (MongoDB, Express, React, Node.js) stack and Socket.io for handling real-time communication",
     link: "https://github.com/bk201grsameer/Chat_Project_MERN",
+    git: {
+      status: true,
+      gitlink: 'https://github.com/bk201grsameer/Chat_Project_MERN'
+    },
+    demo: {
+      status: true,
+      demolink: 'https://narutochat.online/'
+    }
+  },
+  {
+    iconUrl: chatapp,
+    theme: "btn-back-red",
+    name: "3d Portfolio",
+    description:
+      "Made a stunning 3D portfolio to show off the user's journey in a classy way. It's easy to use, letting people check out all the cool stuff the user has done. Everything's picked carefully to show off their talents and story. With smooth moves and awesome pictures, it leaves a big impression",
+    link: "https://github.com/bk201grsameer/Chat_Project_MERN",
+    git: {
+      status: false,
+      gitlink: 'https://github.com/bk201grsameer/Chat_Project_MERN'
+    },
+    demo: {
+      status: true,
+      demolink: 'https://sameerconnect.online/'
+    }
+  },
+  {
+    iconUrl: pizzaapp,
+    theme: "btn-back-black",
+    name: "A Simple Pizza App",
+    description:
+      "This application allows users to conveniently order pizzas of their choice, select different sizes, and make payments using PayPal",
+    link: "https://github.com/bk201grsameer/s4pizza.git",
+    git: {
+      status: true,
+      gitlink: 'https://github.com/bk201grsameer/s4pizza.git'
+    },
+    demo: {
+      status: true,
+      demolink: 'https://s4pizza.online/'
+    }
   },
   {
     iconUrl: homeautomation,
@@ -293,6 +368,14 @@ export const projects = [
     description:
       "Designed a web-based home automation app. Monitor sensors, control servos with ease using Arduino",
     link: "https://github.com/bk201grsameer/Sensor_Project?tab=readme-ov-file",
+    git: {
+      status: true,
+      gitlink: 'https://github.com/bk201grsameer/Sensor_Project?tab=readme-ov-file'
+    },
+    demo: {
+      status: false,
+      demolink: ''
+    }
   },
   {
     iconUrl: videocall,
@@ -301,6 +384,14 @@ export const projects = [
     description:
       "Devloped a simple video call application built using WebRTC (Web Real-Time Communication) and Node.js as the signaling server. The app allows users to make video calls to each other by selecting phone numbers from a list and provides basic call management features",
     link: "https://github.com/bk201grsameer/Video_Call_APP_MERN",
+    git: {
+      status: true,
+      gitlink: 'https://github.com/bk201grsameer/Video_Call_APP_MERN'
+    },
+    demo: {
+      status: false,
+      demolink: ''
+    }
   },
 
   {
@@ -310,15 +401,16 @@ export const projects = [
     description:
       "The PyTube Downloader is a simple Python program that utilizes the pytube library to download videos from YouTube. This program provides an easy-to-use command-line interface for downloading your favorite videos in various formats and resolutions",
     link: "https://github.com/bk201grsameer/DownloadVideos",
+    git: {
+      status: true,
+      gitlink: 'https://github.com/bk201grsameer/DownloadVideos'
+    },
+    demo: {
+      status: false,
+      demolink: ''
+    }
   },
-  {
-    iconUrl: pizzaapp,
-    theme: "btn-back-black",
-    name: "A Simple Pizza App",
-    description:
-      "This application allows users to conveniently order pizzas of their choice, select different sizes, and make payments using PayPal",
-    link: "https://github.com/bk201grsameer/FoodApp",
-  },
+
   {
     iconUrl: weather,
     theme: "btn-back-yellow",
@@ -326,5 +418,13 @@ export const projects = [
     description:
       "Created a simple terminal based weather app. This program utilizes Selenium WebDriver with ChromeDriver to fetch the current temperature and city information from a weather website. It is a simple example of web scraping for educational purposes. The program is written in Python",
     link: "https://github.com/bk201grsameer/GetWeather",
+    git: {
+      status: true,
+      gitlink: 'https://github.com/bk201grsameer/GetWeather'
+    },
+    demo: {
+      status: false,
+      demolink: ''
+    }
   },
 ];

@@ -1,48 +1,48 @@
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense, useState } from "react";
 import Loader from "../Components/Loader";
-import SkyModel2 from "../models/SkyModel2";
+import Island from "../models/Island";
+import SkyModel1 from "../models/SkyModel1";
 import Bird from "../models/Bird";
-import Car from "../models/Car";
-import HomeInfo from "../Components/HomeInfo";
-import CastleInTheSkyV3 from "../models/CastleInTheSkyV3";
+import Plane from "../models/Plane";
 
-const CastleInTheSkyPageV3 = () => {
-  const [isRotating, setIsRotating] = useState(true);
+const IslandPage = () => {
+  const [isRotating, setIsRotating] = useState(false);
   const [currentStage, setCurrentStage] = useState(1);
   const [isPlayingMusic, setIsPlayingMusic] = useState(false);
-  // console.log({ currentStage });
+  console.log({ currentStage });
   const adjustIslandForScreenSize = () => {
     let screenScale = null;
     let screenPosition = null;
-    let rotation = [0.1, 8, 0.0];
+    let rotation = [0.1, 4.7, 0];
 
     if (window.innerWidth < 768) {
-      screenScale = [0.03, 0.03, 0.03];
-      screenPosition = [0, -0.7, 0]; //x y z
+      screenScale = [0.9, 0.9, 0.9];
+      screenPosition = [0, -6.5, -43.4];
     } else {
-      screenScale = [0.05, 0.05, 0.05];
-      screenPosition = [0, -0.7, 0]; //x y z
+      screenScale = [1, 1, 1];
+      screenPosition = [0, -6.5, -43.4]; //x y z axis
     }
 
     return [screenScale, screenPosition, rotation];
   };
-  const [islandScale, islandPosition, islandRotation] =
-    adjustIslandForScreenSize();
   const adjustPlaneForScreenSize = () => {
     let screenScale = null;
     let screenPosition = null;
 
     if (window.innerWidth < 768) {
-      screenScale = [0.001, 0.001, 0.001];
-      screenPosition = [0, -0.3, 2.5]; //x y z axis
+      screenScale = [1.5, 1.5, 1.5];
+      screenPosition = [0, -1.5, 0];
     } else {
-      screenScale = [0.001, 0.001, 0.001];
-      screenPosition = [0, -0.3, 3.5]; //x y z axis
+      screenScale = [3, 3, 3];
+      screenPosition = [0, -4, -4]; //x y z axis
     }
 
     return [screenScale, screenPosition];
   };
+  const [islandScale, islandPosition, islandRotation] =
+    adjustIslandForScreenSize();
+
   const [planeScale, planePosition] = adjustPlaneForScreenSize();
   return (
     <section
@@ -50,28 +50,23 @@ const CastleInTheSkyPageV3 = () => {
         isRotating ? "cursor-grabbing" : "cursor-grab"
       }`}
     >
-      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
-        {currentStage && <HomeInfo currentStage={currentStage} />}
-      </div>
       <Canvas
         className="w-full h-screen bg-transparent"
         camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
-          <directionalLight position={[0.01, 0, 0]} intensity={0.1} />
-          <ambientLight />
-          <pointLight position={[1,1,1]} intensity={3} />
-
-          <spotLight
-              position={[10, 10, 10]}
-              angle={0.15}
-              penumbra={1}
-              intensity={2}
-            />
-          <hemisphereLight />
+          <directionalLight position={[1, 1, 1]} intensity={2} />
+          <ambientLight intensity={0.5} />
+          <pointLight />
+          <spotLight />
+          <hemisphereLight
+            skyColor="#b1e1ff"
+            groundColor={"#000000"}
+            intensity={1}
+          />
           <Bird />
-          <SkyModel2 isRotating={isRotating} />
-          <CastleInTheSkyV3
+          <SkyModel1 isRotating={isRotating}/>
+          <Island
             position={islandPosition}
             scale={islandScale}
             rotation={islandRotation}
@@ -79,7 +74,7 @@ const CastleInTheSkyPageV3 = () => {
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
           />
-          <Car
+          <Plane
             planeScale={planeScale}
             planePosition={planePosition}
             isRotating={isRotating}
@@ -91,4 +86,4 @@ const CastleInTheSkyPageV3 = () => {
   );
 };
 
-export default CastleInTheSkyPageV3;
+export default IslandPage;
