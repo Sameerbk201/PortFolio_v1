@@ -1,4 +1,4 @@
-import CVPDF from './KARN_SAMEER_CV.pdf';
+import CVPDF from './Karn_Sameer_CV.pdf';
 
 export {
     CVPDF

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { socialLinks } from "../constants";
 import { contact, cvIcon } from "../assets/icons";
 import { CVPDF } from "../assets/CV";
+import Tooltip from "../Shared/Tooltip";
 
 const Footer = () => {
 
@@ -31,13 +32,15 @@ const Footer = () => {
         </p>
 
         <div className="flex gap-3 justify-center items-center bg-white p-2 rounded-md">
-          <Link to={'/contact'} >
-            <img
-              src={contact}
-              alt={'Contact'}
-              className="w-6 h-6 object-contain"
-            />
-          </Link>
+          <Tooltip text={'Contact'}>
+            <Link to={'/contact'} >
+              <img
+                src={contact}
+                alt={'Contact'}
+                className="w-6 h-6 object-contain"
+              />
+            </Link>
+          </Tooltip>
           {socialLinks.map((link) => (
             <Link key={link.name} to={link.link} target="_blank">
               <img
@@ -47,13 +50,15 @@ const Footer = () => {
               />
             </Link>
           ))}
-          <button onClick={handleDownloadCV} className="cursor-pointer">
-            <img src={cvIcon}
-              alt="CV"
-              className="w-6 h-6 object-contain"
+          <Tooltip text={'Download.CV'}>
+            <button onClick={handleDownloadCV} className="cursor-pointer">
+              <img src={cvIcon}
+                alt="CV"
+                className="w-6 h-6 object-contain"
 
-            />
-          </button>
+              />
+            </button>
+          </Tooltip>
         </div>
       </div>
     </footer>
