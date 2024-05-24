@@ -1,10 +1,10 @@
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense, useEffect, useState, lazy } from "react";
-const Loader = lazy(() => import('../Components/Loader'));
-const Bird = lazy(() => import('../models/Bird'));
-const Car = lazy(() => import('../models/Car'));
-const HomeInfo = lazy(() => import('../Components/HomeInfo'));
+import Loader from "../Components/Loader";
 const SkyModel2 = lazy(() => import("../models/SkyModel2"));
+import Bird from "../models/Bird";
+import Car from "../models/Car";
+import HomeInfo from "../Components/HomeInfo";
 const CastleInTheSkyV3 = lazy(() => import("../models/CastleInTheSkyV3"));
 
 const CastleInTheSkyPageV3 = () => {
@@ -50,10 +50,8 @@ const CastleInTheSkyPageV3 = () => {
   // This will run one time after the component mounts
   useEffect(() => {
     const onPageLoad = () => {
-      console.log('page loaded');
-      // do something else
-      if (isCastleLoading)
-        setIsCastleLoading(false);
+      // console.log('page loaded');
+      setIsCastleLoading(false);
     };
 
     const calculateLoadingPercentage = () => {

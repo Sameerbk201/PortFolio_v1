@@ -1,4 +1,5 @@
 import { meta, shopify, starbucks, tesla } from "../assets/images";
+
 import {
   ansible,
   apacheIcon,
@@ -273,7 +274,12 @@ export const experiences = [
     icon: paramount,
     iconBg: "#000000",
     date: "Feb 2023 - Present",
-    points: [],
+    points: [
+      "Researching on different kinds of security measures and policies for hardening systems",
+      "Performing study on recent and often IT/IoT Threats",
+      "Simulation of Labs representing the attacks",
+      "Documentation of the attack labs"
+    ],
   },
 ];
 

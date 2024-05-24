@@ -1,11 +1,11 @@
 import { Canvas } from "@react-three/fiber";
-import React, { Suspense, useEffect, useState, lazy } from "react";
-const Loader = lazy(() => import('../Components/Loader'));
-const Bird = lazy(() => import('../models/Bird'));
-const Car = lazy(() => import('../models/Car'));
-const HomeInfo = lazy(() => import('../Components/HomeInfo'));
-const SkyModel2 = lazy(() => import("../models/SkyModel2"));
-const CastleInTheSkyV3 = lazy(() => import("../models/CastleInTheSkyV3"));
+import React, { Suspense, useEffect, useState } from "react";
+import Loader from "../Components/Loader";
+import SkyModel2 from "../models/SkyModel2";
+import Bird from "../models/Bird";
+import Car from "../models/Car";
+import HomeInfo from "../Components/HomeInfo";
+import CastleInTheSkyV3 from "../models/CastleInTheSkyV3";
 
 const CastleInTheSkyPageV3 = () => {
   const [isRotating, setIsRotating] = useState(true);
@@ -52,8 +52,6 @@ const CastleInTheSkyPageV3 = () => {
     const onPageLoad = () => {
       console.log('page loaded');
       // do something else
-      if (isCastleLoading)
-        setIsCastleLoading(false);
     };
 
     const calculateLoadingPercentage = () => {

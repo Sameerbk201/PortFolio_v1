@@ -1,10 +1,11 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+
 // Lazy load the components
+const ProjectsV1 = lazy(() => import('./Pages/ProjectsV1'));
+const AboutV1 = lazy(() => import('./Pages/AboutV1'));
 const Navbar = lazy(() => import("./Components/Navbar"));
 const Home = lazy(() => import("./Pages/Home"));
-const Projects = lazy(() => import("./Pages/Projects"));
-const About = lazy(() => import("./Pages/About"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Footer = lazy(() => import("./Components/Footer"));
 
@@ -15,8 +16,8 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<ProjectsV1 />} />
+          <Route path="/about" element={<AboutV1 />} />
           {/* <Route path="/island" element={<HomeIsLand />} /> */}
           {/* <Route path="/floatingcastle" element={<FloatingCastlePage />} /> */}
           <Route path="/contact" element={<Contact />} />
